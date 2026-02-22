@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSecurity</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body{
+margin:0;
+font-family:"Poppins",sans-serif;
+background:linear-gradient(135deg,#8f00ff,#ff00aa);
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+.container{
+width:95%;
+max-width:950px;
+margin:40px auto;
+background:rgba(20,0,30,0.92);
+border-radius:20px;
+padding:40px;
+color:white;
+box-shadow:0 0 35px rgba(255,0,255,0.3);
+flex:1;
+}
+
+h1{
+text-align:center;
+color:#ffb2ff;
+text-shadow:0 0 15px rgba(255,100,255,0.7);
+}
+
+nav{
+text-align:center;
+margin-bottom:30px;
+}
+
+nav button{
+margin:5px;
+padding:8px 22px;
+border:none;
+border-radius:20px;
+background:linear-gradient(135deg,#b148ff,#ff38c2);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition: transform 0.9s ease,
+            box-shadow 1.1s ease,
+            background 0.8s ease;
+}
+
+nav button:hover{
+background:linear-gradient(135deg,#ff38c2,#b148ff);
+transform:scale(1.08);
+box-shadow:0 0 20px #ff4ed9;
+}
+
+nav button.active-nav{
+background:linear-gradient(135deg,#ff38c2,#b148ff);
+box-shadow:0 0 25px #ff4ed9;
+transform:scale(1.08);
+}
+
+.section{display:none;}
+.active{display:block;}
+
+.card{
+background:rgba(255,0,195,0.18);
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 0 18px rgba(255,0,195,0.25);
+}
+
+.quiz-box{
+text-align:center;
+}
+
+.quiz-options button{
+display:block;
+width:100%;
+margin:8px 0;
+padding:10px;
+border-radius:10px;
+border:none;
+background:linear-gradient(135deg,#b148ff,#ff38c2);
+color:white;
+cursor:pointer;
+transition: transform 0.9s ease, 
+            box-shadow 1.1s ease, 
+            background 0.8s ease;
+}
+
+.quiz-options button:hover{
+transform:scale(1.06);
+box-shadow:0 0 20px #ff4ed9;
+background:linear-gradient(135deg,#ff38c2,#b148ff);
+}
+
+.control-btn{
+margin-top:15px;
+padding:8px 18px;
+border:none;
+border-radius:15px;
+background:#ff38c2;
+color:white;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+color:#f0cfff;
+line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>🛡️ CyberSecurity</h1>
+
+<nav id="mainNav">
+    <p id="warningMessage" style="text-align:center;color:#ff4ed9;font-weight:600;"></p>
+<button onclick="showSection('overview')" id="btn-overview">Overview</button>
+<button onclick="showSection('learning')" id="btn-learning">Learning</button>
+<button onclick="showSection('quizPage')" id="btn-quizPage">Quiz</button>
+</nav>
+
+<!-- Overview -->
+<div id="overview" class="section active">
+
+<div class="card">
+Cybersecurity protects digital systems, devices, and data from cyber threats. 
+In today’s connected world, awareness is the first layer of defense. 
+This project focuses on understanding online dangers and learning how to stay protected in the digital world.
+</div>
+
+<div class="card">
+<strong>Purpose:</strong><br>
+To educate students about online threats and promote responsible digital behavior.
+</div>
+
+<div class="card">
+<strong>Scope:</strong><br>
+Covers phishing, malware, password protection, encryption, and safe browsing.
+</div>
+
+</div>
+<!-- Learning -->
+<div id="learning" class="section">
+
+<div class="card">
+<strong>Phishing:</strong><br>
+Fake emails, messages, or websites designed to trick users into giving passwords, bank details, or personal information.
+Always check the sender and never click suspicious links.
+</div>
+
+<div class="card">
+<strong>Malware:</strong><br>
+Malicious software such as viruses, worms, trojans, and ransomware that can damage or steal data from your device.
+Install antivirus software and avoid downloading unknown files.
+</div>
+
+<div class="card">
+<strong>Firewall:</strong><br>
+A security system that monitors and controls incoming and outgoing network traffic.
+It blocks unauthorized access while allowing safe communication.
+</div>
+
+<div class="card">
+<strong>Encryption:</strong><br>
+A method of converting data into secret code so only authorized users can read it.
+Used in secure websites (HTTPS), banking apps, and messaging apps.
+</div>
+
+<div class="card">
+<strong>Two-Factor Authentication (2FA):</strong><br>
+Adds an extra layer of security by requiring a second verification step
+like an OTP, fingerprint, or authentication app.
+</div>
+
+<div class="card">
+<strong>Social Engineering:</strong><br>
+A technique where attackers manipulate people into revealing confidential information.
+Example: pretending to be a bank officer or tech support.
+</div>
+
+<div class="card">
+<strong>Strong Password Practices:</strong><br>
+Use at least 8–12 characters including uppercase letters, lowercase letters, numbers, and symbols.
+Never reuse passwords across multiple websites.
+</div>
+
+<div class="card">
+<strong>Safe Browsing Tips:</strong><br>
+• Do not share OTPs with anyone.<br>
+• Avoid public WiFi for banking.<br>
+• Log out from shared computers.<br>
+• Keep your software updated.
+</div>
+
+</div>
+
+<!-- Quiz Page -->
+<div id="quizPage" class="section">
+
+<div class="card quiz-box">
+<h3 id="question">Question appears here</h3>
+<div class="quiz-options" id="options"></div>
+
+<button class="control-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+<button class="control-btn" onclick="exitQuiz()">Leave Quiz</button>
+
+<p id="scoreDisplay"></p>
+</div>
+
+</div>
+
+<footer>
+Made by Shreyas Nair | 7th E | Premium Cyber Awareness Platform
+<br><br>
+Proudly From Vidya Niketan English Medium School
+</footer>
+
+</div>
+
+<script>
+
+let current=0;
+let score=0;
+let answered=false;
+let quizActive=false;
+
+function showSection(id){
+
+// Block navigation if quiz is active
+if(quizActive && id !== "quizPage"){
+document.getElementById("warningMessage").innerText=
+"Please finish the quiz or click 'Leave Quiz' to exit.";
+setTimeout(()=>{
+document.getElementById("warningMessage").innerText="";
+},3000);
+return;
+}
+
+// Hide all sections
+document.querySelectorAll('.section').forEach(sec=>{
+sec.classList.remove('active');
+});
+
+// Show selected section
+document.getElementById(id).classList.add('active');
+
+// Update active nav button
+document.querySelectorAll("nav button").forEach(btn=>{
+btn.classList.remove("active-nav");
+});
+document.getElementById("btn-"+id).classList.add("active-nav");
+
+// If quiz opened
+if(id === "quizPage"){
+quizActive = true;
+current = 0;
+score = 0;
+answered = false;
+document.getElementById("scoreDisplay").innerText = "";
+document.getElementById("nextBtn").style.display="inline-block";
+loadQuestion();
+}
+}
+
+const quizData=[
+{q:"What is phishing?",a:["Stealing sensitive data","Boosting WiFi","Updating apps"],correct:0},
+{q:"Strong password includes?",a:["123456","Name only","Letters, numbers & symbols"],correct:2},
+{q:"Malware does what?",a:["Improves speed","Damages systems","Protects files"],correct:1},
+{q:"2FA provides?",a:["Extra security","Free data","Auto login"],correct:0},
+{q:"Firewall protects?",a:["Network","Keyboard","Monitor"],correct:0},
+{q:"Encryption does?",a:["Deletes files","Secures data","Spreads virus"],correct:1},
+{q:"Ransomware is?",a:["Antivirus","Malware demanding money","Firewall"],correct:1},
+{q:"Safe practice is?",a:["Sharing OTP","Using 2FA","Clicking unknown links"],correct:1}
+];
+
+function loadQuestion(){
+answered=false;
+document.getElementById("question").innerText=quizData[current].q;
+
+let optionsHTML="";
+quizData[current].a.forEach((option,index)=>{
+optionsHTML+=`<button onclick="checkAnswer(this,${index})">${option}</button>`;
+});
+
+document.getElementById("options").innerHTML=optionsHTML;
+}
+
+function checkAnswer(button,index){
+if(answered) return;
+answered=true;
+
+const correctIndex=quizData[current].correct;
+const buttons=document.querySelectorAll("#options button");
+
+buttons.forEach((btn,i)=>{
+btn.disabled=true;
+if(i===correctIndex){
+btn.style.background="#22c55e";
+}
+if(i===index && i!==correctIndex){
+btn.style.background="#ef4444";
+}
+});
+
+if(index===correctIndex){
+score++;
+}
+}
+
+function nextQuestion(){
+if(!answered){
+alert("Please select an answer first.");
+return;
+}
+
+current++;
+
+if(current<quizData.length){
+loadQuestion();
+}else{
+document.getElementById("question").innerText="Quiz Completed!";
+document.getElementById("options").innerHTML="";
+document.getElementById("scoreDisplay").innerText=
+"Final Score: "+score+" / "+quizData.length;
+document.getElementById("nextBtn").style.display="none";
+quizActive=false;
+}
+}
+
+function exitQuiz(){
+quizActive=false;
+score=0;
+answered=false;
+document.getElementById("scoreDisplay").innerText="";
+showSection('overview');
+}
+
+// Default active nav
+document.getElementById("btn-overview").classList.add("active-nav");
+
+</script>
+
+</body>
+</html>
